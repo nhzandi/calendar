@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title_block %}
+
+	{{year}}-{{month.name}}-{{day}}
+
+{% endblock %}
+
+
+
+
+{% block body_block %}
+
+  <tr>
+  {% for x in outWeek0 %}
+      <td  id="00" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);" onclick="func();">
+      {% if x %}
+        {{ x }}
+      {% endif %}
+      </td>
+  {% endfor %}
+  </tr>
+
+
+  <tr>
+  {% for x in outWeek1 %}
+      <td  id="00" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);" onclick="func();">
+        {{ x }}
+      </td>
+  {% endfor %}
+  </tr>
+
+
+  <tr>
+  {% for x in outWeek2 %}
+      <td  id="00" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);" onclick="func();">
+        {{ x }}
+      </td>
+  {% endfor %}
+  </tr>
+
+  <tr>
+  {% for x in outWeek3 %}
+      <td  id="00" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);" onclick="func();">
+        {{ x }}
+      </td>
+  {% endfor %}
+  </tr>
+
+  <tr>
+  {% for x in outWeek4 %}
+      <td  id="00" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);" onclick="func();">
+      {% if x %}
+        {{ x }}
+      {% endif %}
+      </td>
+  {% endfor %}
+  </tr>
+
+  <tr>
+  {% for x in outWeek5 %}
+      <td  id="00" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);" onclick="func();">
+      {% if x %}
+        {{ x }}
+      {% endif %}
+      </td>
+  {% endfor %}
+  </tr>
+{% endblock %}

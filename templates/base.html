@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- // <script src="jquery-1.11.2.min.js"></script> -->
+	<meta charset="UTF-8">
+
+</head>
+<body>
+
+<title>
+  Calendar
+</title>
+
+<style>
+
+th, td {
+    padding: 5px;
+    text-align:center;
+
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin-top:10px;
+}
+
+</style>
+
+  <div style="background-color: #2f4f4f; color:white; padding:10px; text-align:center; font-weight:bold; font-size:40px">
+  <p id="title">{% block title_block %}{% endblock %}</p>
+  </div>
+
+
+
+
+
+<table style="width:100%">
+  <tr>
+    		
+    <th style ="background-color: #00ced1; width: 100px;">Saturday</th>
+    <th style ="background-color: #00ced1; width: 100px;">Sunday</th>
+    <th style ="background-color: #00ced1; width: 100px;">Monday</th>
+	  <th style ="background-color: #00ced1; width: 100px;">Tuesday</th>
+	  <th style ="background-color: #00ced1; width: 100px;">Wednesday</th>
+	  <th style ="background-color: #00ced1; width: 100px;">Thursday</th>
+	  <th style ="background-color: #00ced1; width: 100px;">Friday</th>
+    
+  </tr>
+
+  {% block body_block %}{% endblock %}
+
+
+</table>
+
+
+<script>
+var d = new Date();
+var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+var monthDates = [31,      28,        31,     30,   31,    30,    31,     31,        30,        31,        30   ,    31];
+
+function coloring(x){
+  x.style.backgroundColor = "#ededed";
+}
+
+function uncoloring(x){
+  x.style.backgroundColor = "#ffffff";
+}
+
+function func(){
+  var person = prompt("Please enter", "");
+}
+
+function go(){
+  window.location="site.html";
+}
+</script> 
+
+
+
+</body>
+</html>
+

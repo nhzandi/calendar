@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<script src="jquery-1.11.2.min.js"></script>
+	<meta charset="UTF-8">
+
+</head>
+<body>
+
+<title>
+  Calendar
+</title>
+
+<style>
+
+th, td {
+    padding: 5px;
+    text-align:center;
+
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin-top:10px;
+}
+
+</style>
+
+  <div style="background-color: #2f4f4f; color:white; padding:10px; text-align:center; font-weight:bold; font-size:40px">
+  <p id="title">{% block body_block %}{% endblock %}</p>
+  </div>
+
+
+
+
+
+<table style="width:100%">
+  <tr>
+    <th style ="background-color: #00ced1; width: 100px;">Saturday</th>
+    <th style ="background-color: #00ced1; width: 100px;">Sunday</th>		
+    <th style ="background-color: #00ced1; width: 100px;">Monday</th>
+	  <th style ="background-color: #00ced1; width: 100px;">Tuesday</th>
+	  <th style ="background-color: #00ced1; width: 100px;">Wednesday</th>
+	  <th style ="background-color: #00ced1; width: 100px;">Thursday</th>
+	  <th style ="background-color: #00ced1; width: 100px;">Friday</th>
+  </tr>
+
+
+  <tr>
+    <td  id="00" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);" onclick="func();">
+	
+	</td>
+    <td  id="01" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);" onclick="go();">
+	
+	</td>
+    <td  id="02" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);">
+	
+	</td>
+    <td  id="03" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);">
+	
+	</td>
+    <td  id="04" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);">
+	
+	</td>
+    <td  id="05" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);">
+	
+	</td>
+    <td  id="06" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);">
+	
+	</td>
+  </tr>
+
+
+  <tr>
+    <td  id="10" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);">
+	
+	</td>
+    <td  id="11" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);">
+	
+	</td>
+    <td  id="12" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);">
+	
+	</td>
+    <td  id="13" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);">
+	
+	</td>
+    <td  id="14" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);">
+	
+	</td>
+    <td  id="15" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);">
+	
+	</td>
+    <td  id="16" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);">
+	
+	</td>
+  </tr>
+
+
+  <tr>
+    <td  id="20" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);">
+	
+	</td>
+    <td  id="21" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);">
+	
+	</td>
+    <td  id="22" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);">
+	
+	</td>
+    <td  id="23" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);">
+	
+	</td>
+    <td  id="24" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);">
+	
+	</td>
+    <td  id="25" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);">
+	
+	</td>
+    <td  id="26" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);">
+	
+	</td>
+  </tr>
+
+  <tr>
+    <td  id="30" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);">
+	
+	</td>
+    <td  id="31" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);">
+	
+	</td>
+    <td  id="32" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);">
+	
+	</td>
+    <td  id="33" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);">
+	
+	</td>
+    <td  id="34" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);">
+	
+	</td>
+    <td  id="35" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);">
+	
+	</td>
+    <td  id="36" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);">
+	
+	</td>
+  </tr>
+
+  <tr>
+    <td  id="40" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);">
+	
+	</td>
+    <td  id="41" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);">
+	
+	</td>
+    <td  id="42" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);">
+	
+	</td>
+    <td  id="43" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);">
+	
+	</td>
+    <td  id="44" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);">
+	
+	</td>
+    <td  id="45" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);">
+	
+	</td>
+    <td  id="46" style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);">
+	
+	</td>
+  </tr>
+
+
+</table>
+
+
+<script>
+var d = new Date();
+var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+var monthDates = [31,      28,        31,     30,   31,    30,    31,     31,        30,        31,        30   ,    31];
+document.getElementById("title").innerHTML = months[d.getMonth()];
+
+/*
+var rows = document.getElementsByTagName('tr');
+var cells = rows[1].getElementsByTagName('td');
+cells[0].innerHTML = d.getMonth();
+*/
+
+function coloring(x){
+  x.style.backgroundColor = "#ededed";
+}
+
+function uncoloring(x){
+  x.style.backgroundColor = "#ffffff";
+}
+
+function func(){
+  var person = prompt("Please enter", "");
+}
+
+function go(){
+  window.location="site.html";
+}
+</script> 
+
+
+</body>
+</html>
+
