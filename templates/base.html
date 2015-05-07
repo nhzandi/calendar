@@ -36,17 +36,7 @@ table, th, td {
 
 
 <table style="width:100%">
-  <tr>
-    		
-    <th style ="background-color: #00ced1; width: 100px;">Saturday</th>
-    <th style ="background-color: #00ced1; width: 100px;">Sunday</th>
-    <th style ="background-color: #00ced1; width: 100px;">Monday</th>
-	  <th style ="background-color: #00ced1; width: 100px;">Tuesday</th>
-	  <th style ="background-color: #00ced1; width: 100px;">Wednesday</th>
-	  <th style ="background-color: #00ced1; width: 100px;">Thursday</th>
-	  <th style ="background-color: #00ced1; width: 100px;">Friday</th>
-    
-  </tr>
+
 
   {% block body_block %}{% endblock %}
 
@@ -71,8 +61,17 @@ function func(){
   var person = prompt("Please enter", "");
 }
 
-function go(){
-  window.location="site.html";
+document.addEventListener('click', function(e) {
+    go(e.target.id);
+});
+
+function go(x){
+  //window.location="site.html";
+  
+  if(x!=0){
+    // alert(x);
+    window.location="/instrument/dayShow/{{year}}/{{month}}/"+x;
+  }
 }
 </script> 
 
@@ -80,4 +79,3 @@ function go(){
 
 </body>
 </html>
-

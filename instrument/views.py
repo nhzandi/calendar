@@ -61,7 +61,24 @@ def index(request):
 	return response
 
 
+def dayShow(request, number_of_year, number_of_month, number_of_day):
+    context_dict = {}
+    # showDate = datetime.date.today()
+     
 
+    # firstDayOfMonth = datetime.date(showDate.year, showDate.month, 1)
+    m = numOfMonth.objects.get(name=number_of_month)
+
+    try:
+        dateOfMonth = numOfDay.objects.get(number=number_of_day, numofmonth=m)
+        context_dict['dateOfMonth'] = dateOfMonth
+
+    except numOfDay.DoesNotExist:
+        # We get here if we didn't find the specified category.
+        # Don't do anything - the template displays the "no category" message for us.
+        pass
+
+    return render(request, 'instrument/show.html', context_dict)
 
 # def register(request):
 
@@ -119,6 +136,36 @@ def index(request):
 #     return render(request,
 #             'instrument/register.html',
 #             {'user_form': user_form, 'profile_form': profile_form, 'registered': registered} )
+
+
+@login_required
+def add_time(request, day):
+
+    try:
+        cat = numOfTime.objects.get(slug=category_name_slug)
+    except Category.DoesNotExist:
+        cat = None
+
+    if request.method == 'POST':
+        form = PageForm(request.POST)
+        if form.is_valid():
+            if cat:
+                page = form.save(commit=False)
+                page.category = cat
+                page.views = 0
+                page.save()
+                # probably better to use a redirect here.
+                return category(request, category_name_slug)
+        else:
+            print form.errors
+    else:
+        form = PageForm()
+
+    context_dict = {'form':form, 'category': cat, 'category_name_slug': category_name_slug}
+
+    return render(request, 'instrument/add_time.html', context_dict)
+
+
 
 def user_login(request):
 

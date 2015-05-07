@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title_block %}
+
+    {{dateOfMonth.numofmonth.numofyear}}-{{dateOfMonth.numofmonth.name}}-{{dateOfMonth.number}}
+
+{% endblock %}
+
+
+{% block body_block %}
+    {% if dateOfMonth %}
+            
+            <li> {{dateOfMonth.numofmonth.numofyear}}</li>
+            <li> {{dateOfMonth.numofmonth.name}}</li>
+            <li> {{dateOfMonth.number}}</li>
+        
+    {% endif %}
+
+{% endblock %}

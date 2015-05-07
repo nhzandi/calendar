@@ -4,7 +4,7 @@
 
 {% block title_block %}
 
-	{{year}}-{{month.name}}-{{day}}
+	{{month.name}}
 
 {% endblock %}
 
@@ -12,11 +12,23 @@
 
 
 {% block body_block %}
-
+  
+    <tr>
+        
+    <th style ="background-color: #00ced1; width: 100px;">Saturday</th>
+    <th style ="background-color: #00ced1; width: 100px;">Sunday</th>
+    <th style ="background-color: #00ced1; width: 100px;">Monday</th>
+    <th style ="background-color: #00ced1; width: 100px;">Tuesday</th>
+    <th style ="background-color: #00ced1; width: 100px;">Wednesday</th>
+    <th style ="background-color: #00ced1; width: 100px;">Thursday</th>
+    <th style ="background-color: #00ced1; width: 100px;">Friday</th>
+    
+  </tr>
+  
   <tr>
   {% for x in outWeek0 %}
-      <td  id="00" style ="background-color: #ffffff; height: 100px;" 
-      onmouseover="coloring(this);" onmouseout="uncoloring(this);" onclick="func();">
+      <td  id={{x}} style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);" >
       {% if x %}
         {{ x }}
       {% endif %}
@@ -27,8 +39,8 @@
 
   <tr>
   {% for x in outWeek1 %}
-      <td  id="00" style ="background-color: #ffffff; height: 100px;" 
-      onmouseover="coloring(this);" onmouseout="uncoloring(this);" onclick="func();">
+      <td  id={{x}} style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);" >
         {{ x }}
       </td>
   {% endfor %}
@@ -37,8 +49,8 @@
 
   <tr>
   {% for x in outWeek2 %}
-      <td  id="00" style ="background-color: #ffffff; height: 100px;" 
-      onmouseover="coloring(this);" onmouseout="uncoloring(this);" onclick="func();">
+      <td  id={{x}} style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);" >
         {{ x }}
       </td>
   {% endfor %}
@@ -46,8 +58,8 @@
 
   <tr>
   {% for x in outWeek3 %}
-      <td  id="00" style ="background-color: #ffffff; height: 100px;" 
-      onmouseover="coloring(this);" onmouseout="uncoloring(this);" onclick="func();">
+      <td  id={{x}} style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);" >
         {{ x }}
       </td>
   {% endfor %}
@@ -55,8 +67,8 @@
 
   <tr>
   {% for x in outWeek4 %}
-      <td  id="00" style ="background-color: #ffffff; height: 100px;" 
-      onmouseover="coloring(this);" onmouseout="uncoloring(this);" onclick="func();">
+      <td  id={{x}} style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);" >
       {% if x %}
         {{ x }}
       {% endif %}
@@ -66,8 +78,8 @@
 
   <tr>
   {% for x in outWeek5 %}
-      <td  id="00" style ="background-color: #ffffff; height: 100px;" 
-      onmouseover="coloring(this);" onmouseout="uncoloring(this);" onclick="func();">
+      <td  id={{x}} style ="background-color: #ffffff; height: 100px;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);">
       {% if x %}
         {{ x }}
       {% endif %}
@@ -75,3 +87,4 @@
   {% endfor %}
   </tr>
 {% endblock %}
+
