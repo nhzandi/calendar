@@ -4,7 +4,9 @@ from instrument.models import numOfYear, numOfMonth, numOfDay, numOfTime
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 import datetime
-# Create your views here.
+from instrument.forms import TimeForm
+
+
 def index(request):
 	today = datetime.date.today()
 	one_day = datetime.timedelta(days=30)
@@ -52,7 +54,7 @@ def index(request):
 		count = count + 1
 
 
-	context_dict = {'year':showDate.year, 'month': m, 'day': showDate.day, 'outWeek0': outWeek0, 
+	context_dict = {'year1':showDate.year, 'month1': m, 'day1': showDate.day, 'outWeek0': outWeek0, 
 		'outWeek1': outWeek1, 'outWeek2': outWeek2, 'outWeek3': outWeek3, 'outWeek4': outWeek4, 'outWeek5': outWeek5}
 	#return HttpResponse(showDate)
 
@@ -67,11 +69,15 @@ def dayShow(request, number_of_year, number_of_month, number_of_day):
      
 
     # firstDayOfMonth = datetime.date(showDate.year, showDate.month, 1)
-    m = numOfMonth.objects.get(name=number_of_month)
+    y = numOfYear.objects.get(number=2015)
+    m = numOfMonth.objects.get(numofyear=y, name=number_of_month)
 
     try:
         dateOfMonth = numOfDay.objects.get(number=number_of_day, numofmonth=m)
         context_dict['dateOfMonth'] = dateOfMonth
+        context_dict['number_of_year'] = number_of_year
+        context_dict['number_of_month'] = number_of_month
+        context_dict['number_of_day'] = number_of_day
 
     except numOfDay.DoesNotExist:
         # We get here if we didn't find the specified category.
@@ -139,29 +145,33 @@ def dayShow(request, number_of_year, number_of_month, number_of_day):
 
 
 @login_required
-def add_time(request, day):
+def add_time(request, number_of_year, number_of_month, number_of_day):
+
 
     try:
-        cat = numOfTime.objects.get(slug=category_name_slug)
-    except Category.DoesNotExist:
-        cat = None
+        y = numOfYear.objects.get(number=2015)
+        m = numOfMonth.objects.get(numofyear=y, name=number_of_month)
+        dateOfMonth = numOfDay.objects.get(number=number_of_day, numofmonth=m)
+        # cat = numOfTime.objects.get()
+    except numOfDay.DoesNotExist:
+        dateOfMonth = None
 
     if request.method == 'POST':
-        form = PageForm(request.POST)
+        form = TimeForm(request.POST)
         if form.is_valid():
-            if cat:
-                page = form.save(commit=False)
-                page.category = cat
-                page.views = 0
-                page.save()
+            if dateOfMonth:
+                timeOfDay = form.save(commit=False)
+                timeOfDay.numofday = dateOfMonth
+                timeOfDay.save()
                 # probably better to use a redirect here.
-                return category(request, category_name_slug)
+                return dayShow(request, number_of_year, number_of_month, number_of_day)
         else:
             print form.errors
     else:
-        form = PageForm()
+        form = TimeForm()
 
-    context_dict = {'form':form, 'category': cat, 'category_name_slug': category_name_slug}
+    context_dict = {'form':form, 'dateOfMonth': dateOfMonth, 'number_of_year': number_of_year,
+        'number_of_month': number_of_month, 'number_of_day': number_of_day}
 
     return render(request, 'instrument/add_time.html', context_dict)
 

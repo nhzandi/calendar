@@ -10,12 +10,11 @@
 
 
 {% block body_block %}
-    {% if dateOfMonth %}
-            
-            <li> {{dateOfMonth.numofmonth.numofyear}}</li>
-            <li> {{dateOfMonth.numofmonth.name}}</li>
-            <li> {{dateOfMonth.number}}</li>
-        
+
+    {% if user.is_authenticated %}
+        <li> {{user.username}}</li>
+        <li><a href="/instrument/dayShow/{{dateOfMonth.numofmonth.numofyear}}/{{dateOfMonth.numofmonth.name}}/{{dateOfMonth.number}}/add_time/">Add Time</a></li>
     {% endif %}
+
 
 {% endblock %}

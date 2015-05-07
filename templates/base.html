@@ -28,7 +28,7 @@ table, th, td {
 </style>
 
   <div style="background-color: #2f4f4f; color:white; padding:10px; text-align:center; font-weight:bold; font-size:40px">
-  <p id="title">{% block title_block %}{% endblock %}</p>
+  <p>{% block title_block %}{% endblock %}</p>
   </div>
 
 
@@ -65,12 +65,18 @@ document.addEventListener('click', function(e) {
     go(e.target.id);
 });
 
-function go(x){
-  //window.location="site.html";
+
+// document.addEventListener('click', go(e) );
+
+
+function go(e){
   
-  if(x!=0){
-    // alert(x);
-    window.location="/instrument/dayShow/{{year}}/{{month}}/"+x;
+    
+    // window.location="/instrument/dayShow/{{year1}}/{{month1}}/"+ e.target.id ;
+// }
+  if(e!=0){
+    // alert(e);
+    window.location="/instrument/dayShow/{{year1}}/{{month1}}/"+e;
   }
 }
 </script> 

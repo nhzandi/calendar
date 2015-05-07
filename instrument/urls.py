@@ -7,5 +7,6 @@ urlpatterns = patterns('',
 	url(r'^login/', views.user_login, name='login'),
 	url(r'^restricted/', views.restricted, name='restricted'),
 	url(r'^dayShow/(?P<number_of_year>[\w\-]+)/(?P<number_of_month>[\w\-]+)/(?P<number_of_day>[\w\-]+)/$', views.dayShow, name='dayShow'),
+	url(r'^dayShow/(?P<number_of_year>[\w\-]+)/(?P<number_of_month>[\w\-]+)/(?P<number_of_day>[\w\-]+)/add_time/$', views.add_time, name='add_time'),
 )
 	

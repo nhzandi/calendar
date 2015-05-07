@@ -4,7 +4,7 @@
 
 {% block title_block %}
 
-	{{month.name}}
+	{{month1.name}}
 
 {% endblock %}
 
@@ -24,7 +24,7 @@
     <th style ="background-color: #00ced1; width: 100px;">Friday</th>
     
   </tr>
-  
+
   <tr>
   {% for x in outWeek0 %}
       <td  id={{x}} style ="background-color: #ffffff; height: 100px;" 
@@ -36,7 +36,6 @@
   {% endfor %}
   </tr>
 
-
   <tr>
   {% for x in outWeek1 %}
       <td  id={{x}} style ="background-color: #ffffff; height: 100px;" 
@@ -45,7 +44,6 @@
       </td>
   {% endfor %}
   </tr>
-
 
   <tr>
   {% for x in outWeek2 %}
@@ -75,7 +73,6 @@
       </td>
   {% endfor %}
   </tr>
-
   <tr>
   {% for x in outWeek5 %}
       <td  id={{x}} style ="background-color: #ffffff; height: 100px;" 

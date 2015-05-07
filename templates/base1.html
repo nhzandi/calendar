@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- // <script src="jquery-1.11.2.min.js"></script> -->
+	<meta charset="UTF-8">
+
+</head>
+<body>
+
+<title>
+  Calendar
+</title>
+
+<style>
+
+th, td {
+    padding: 5px;
+    text-align:center;
+
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin-top:10px;
+}
+
+</style>
+
+  <div style="background-color: #2f4f4f; color:white; padding:10px; text-align:center; font-weight:bold; font-size:40px">
+  <p>{% block title_block %}{% endblock %}</p>
+  </div>
+
+
+
+
+
+<table style="width:100%">
+
+
+  {% block body_block %}{% endblock %}
+
+
+</table>
+
+</body>
+</html>
