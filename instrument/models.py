@@ -32,16 +32,6 @@ class numOfDay(models.Model):
 class numOfDayAdmin(admin.ModelAdmin):
 	list_display = ('number', 'numofmonth')
 
-class numOfTime(models.Model):
-	numofday = models.ForeignKey(numOfDay)
-	startHour = models.IntegerField(default=0)	#Hour Time of the day from 0-23
-	startMinute = models.IntegerField(default=0)	#Minute Time of the day from 0-59
-
-	def __unicode__(self):
-		return str(self.startHour)
-
-class numOfTimeAdmin(admin.ModelAdmin):
-	list_display = ('startHour', 'numofday')
 
 class UserProfile(models.Model):
 	# This line is required. Links UserProfile to a User model instance.
@@ -55,3 +45,15 @@ class UserProfile(models.Model):
 	# Override the __unicode__() method to return out something meaningful!
 	def __unicode__(self):
 		return self.user.username
+
+class numOfTime(models.Model):
+	numofday = models.ForeignKey(numOfDay)
+	numofuser = models.ForeignKey(User, blank=True, default=None)
+	startHour = models.IntegerField(default=0)	#Hour Time of the day from 0-23
+	startMinute = models.IntegerField(default=0)	#Minute Time of the day from 0-59
+
+	def __unicode__(self):
+		return str(self.startHour)
+
+class numOfTimeAdmin(admin.ModelAdmin):
+	list_display = ('startHour', 'numofday', 'numofuser')

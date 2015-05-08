@@ -9,7 +9,7 @@ class TimeForm(forms.ModelForm):
     class Meta:
         # Provide an association between the ModelForm and a model
         model = numOfTime
-        exclude = ('numofday',)
+        exclude = ('numofday', 'numofuser')
     def clean(self):
     	cleaned_data = self.cleaned_data
         return cleaned_data

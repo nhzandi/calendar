@@ -162,6 +162,7 @@ def add_time(request, number_of_year, number_of_month, number_of_day):
             if dateOfMonth:
                 timeOfDay = form.save(commit=False)
                 timeOfDay.numofday = dateOfMonth
+                timeOfDay.numofuser = request.user
                 timeOfDay.save()
                 # probably better to use a redirect here.
                 return dayShow(request, number_of_year, number_of_month, number_of_day)
