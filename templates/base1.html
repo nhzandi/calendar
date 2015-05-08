@@ -1,10 +1,22 @@
 <!DOCTYPE html>
+
+
 <html lang="en">
 
 <head>
-	<!-- // <script src="jquery-1.11.2.min.js"></script> -->
-	<meta charset="UTF-8">
+  <!-- // <script src="jquery-1.11.2.min.js"></script> -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="http://getbootstrap.com/favicon.ico">
 
+  <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- <link href="/home/navid/apache/django/calendar/static/CSS/base.css" rel="stylesheet"> -->
+  {% load staticfiles %}
+  <!-- <link rel="stylesheet" type="text/css" href="{% static "CSS/base.css" %}"> -->
+  <!-- <link rel="stylesheet" type="text/css" href="{% static "CSS/bootstrap.css" %}"> -->
 </head>
 <body>
 
@@ -12,36 +24,51 @@
   Calendar
 </title>
 
+
+
 <style>
+  body{
+    margin: 10px;
+  }
 
-th, td {
-    padding: 5px;
-    text-align:center;
+/*.topbar > li > a:hover,
+.topbar > li > a:focus {
+  text-decoration: none;
+  background-color: #2f4f4f;
+}
+*/
 
-}
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-    margin-top:10px;
-}
 
 </style>
 
-  <div style="background-color: #2f4f4f; color:white; padding:10px; text-align:center; font-weight:bold; font-size:40px">
+
+  
+
+
+  <div class="img-rounded" style="background-color: #2f4f4f; color:white; padding:30px; text-align:center; font-weight:bold; font-size:40px; margin-top: 10px">
+  <!-- <div class="container"> -->
   <p>{% block title_block %}{% endblock %}</p>
   </div>
 
 
 
 
-
-<table style="width:100%">
+<div class="panel panel-default" style="margin-top:10px;">
+<table class="table table-bordered" >
 
 
   {% block body_block %}{% endblock %}
 
 
 </table>
+</div>
+
+
+{% block body_block1 %}{% endblock %}
+
+<!-- <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script> -->
+<script src="{% static "JS/bootstrap.min.css" %}"></script>
+<!-- <link rel="stylesheet" type="text/css" href="{% static "bootstrap.min.css" %}"> -->
 
 </body>
 </html>
