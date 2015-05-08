@@ -79,11 +79,12 @@ def dayShow(request, number_of_year, number_of_month, number_of_day):
         context_dict['number_of_month'] = number_of_month
         context_dict['number_of_day'] = number_of_day
 
-    except numOfDay.DoesNotExist:
-        # We get here if we didn't find the specified category.
-        # Don't do anything - the template displays the "no category" message for us.
-        pass
+        timeOfDay = numOfTime.objects.filter(numofday=dateOfMonth)
+        context_dict['timeOfDay'] = timeOfDay
 
+    except numOfDay.DoesNotExist:
+        pass
+    # context_dict['timeOfDay'] = timeOfDay
     return render(request, 'instrument/show.html', context_dict)
 
 # def register(request):

@@ -3,18 +3,29 @@
 {% load staticfiles %}
 
 {% block title_block %}
-
-    {{dateOfMonth.numofmonth.numofyear}}-{{dateOfMonth.numofmonth.name}}-{{dateOfMonth.number}}
-
+	{% if dateOfMonth %}
+		{{dateOfMonth.numofmonth.numofyear}}-{{dateOfMonth.numofmonth.name}}-{{dateOfMonth.number}}
+	{% endif %}
 {% endblock %}
 
 
 {% block body_block %}
+	
+	{% if dateOfMonth %}	
+		{% if timeOfDay %}
+			{% for times in timeOfDay %}
+				<li>{{ times }} : {{times.startMinute}}</li>
+			{% endfor %}
+		{% else %}
+			No Reserved Time </br>
+		{% endif %}
+	{% else %}
+		The Day doesn't exist </br> 
+	{% endif %}
 
-    {% if user.is_authenticated %}
-        <li> {{user.username}}</li>
-        <li><a href="/instrument/dayShow/{{dateOfMonth.numofmonth.numofyear}}/{{dateOfMonth.numofmonth.name}}/{{dateOfMonth.number}}/add_time/">Add Time</a></li>
-    {% endif %}
-
+	{% if user.is_authenticated %}
+		<li> {{user.username}}</li>
+		<li><a href="/instrument/dayShow/{{dateOfMonth.numofmonth.numofyear}}/{{dateOfMonth.numofmonth.name}}/{{dateOfMonth.number}}/add_time/">Add Time<a/></li>
+	{% endif %}
 
 {% endblock %}
