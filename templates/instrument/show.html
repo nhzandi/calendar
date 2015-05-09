@@ -2,6 +2,16 @@
 
 {% load staticfiles %}
 
+{% block header_block1 %}
+  {% if user.is_authenticated %}
+  	<li><a style="color:  #2f4f4f;" href="/instrument/dayShow/{{dateOfMonth.numofmonth.numofyear}}/{{dateOfMonth.numofmonth.name}}/{{dateOfMonth.number}}/add_time/">Add Time</a></li>
+    <li><a style="color:  #2f4f4f;" href="/instrument/logout/">Logout</a></li>
+    <li><a style="color:  #2f4f4f;">{{user.username}}</a></li>
+  {% else %}
+    <li><a style="color:  #2f4f4f;" href="/instrument/login/">Login</a></li>
+  {% endif %}
+{% endblock %}
+
 {% block title_block %}
 	{% if dateOfMonth %}
 		{{dateOfMonth.numofmonth.numofyear}}-{{dateOfMonth.numofmonth.name}}-{{dateOfMonth.number}}
@@ -39,8 +49,8 @@
 	{% endif %}
 
 	{% if user.is_authenticated %}
-		<li> {{user.username}}</li>
-		<li><a href="/instrument/dayShow/{{dateOfMonth.numofmonth.numofyear}}/{{dateOfMonth.numofmonth.name}}/{{dateOfMonth.number}}/add_time/">Add Time<a/></li>
+		<!-- <li> {{user.username}}</li> -->
+		<!-- <li><a href="/instrument/dayShow/{{dateOfMonth.numofmonth.numofyear}}/{{dateOfMonth.numofmonth.name}}/{{dateOfMonth.number}}/add_time/">Add Time<a/></li> -->
 	{% endif %}
 
 

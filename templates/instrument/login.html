@@ -1,48 +1,47 @@
+{% extends 'base1.html' %}
+      {% load staticfiles %}
+  
 
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- <link rel="icon" href="http://getbootstrap.com/favicon.ico"> -->
-
-    <title>Signin Template for Bootstrap</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="http://getbootstrap.com/examples/sigin/signin.css" rel="stylesheet">
-
-    <script src="http://getbootstrap.com/assets/js/ie-emulation-modes-warning.js"></script>
-
-  </head>
-
-  <body>
-
-    <div class="container">
-
-      <form class="form-signin" id="login_form" method="post" action="/instrument/login/">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        {% csrf_token %}
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="text" id="inputEmail" name="username" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
-        <div class="checkbox">
-<!--           <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label> -->
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      </form>
-
-    </div> <!-- /container -->
+  <link rel="stylesheet" type="text/css" href="{% static 'CSS/style.css' %}">
     
-  </body>
-</html>
+
+{% block header_block1 %}
+
+<div style="margin-top: 70px;" id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+  <div class="modal-content">
+      <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h1 class="text-center" style="color: #2f4f4f;">Login</h1>
+      </div>
+      <div class="modal-body">
+          
+
+          <form class="form col-md-12  center-block" method="post" action="/instrument/login/">
+            {% csrf_token %}
+            <div class="form-group">
+              <input type="text" name="username" class="form-control input-lg" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <input type="password" name="password" class="form-control input-lg" placeholder="Password">
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary btn-lg btn-block" type="submit" style="background-color:#2f4f4f;">Sign In</button>
+              <span class="pull-right" ><a style="color: #2f4f4f;" href="#">Register</a></span><span><a style="color: #2f4f4f;" href="#">Need help?</a></span>
+            </div>
+          </form>
+
+
+
+      </div>
+      <div class="modal-footer">
+          <div class="col-md-12">
+          
+      </div>  
+      </div>
+  </div>
+  </div>
+</div>
+  <!-- script references -->
+
+{% endblock %}

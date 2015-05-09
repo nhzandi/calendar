@@ -1,0 +1,35 @@
+{% extends 'base1.html' %}
+
+{% load staticfiles %}
+
+{% block header_block1 %}
+  {% if user.is_authenticated %}
+
+    <li><a style="color:  #2f4f4f;" href="/instrument/logout/">Logout</a></li>
+    <li><a style="color:  #2f4f4f;">{{user.username}}</a></li>
+  {% else %}
+    <li><a style="color:  #2f4f4f;" href="/instrument/login/">Login</a></li>
+  {% endif %}
+{% endblock %}
+
+
+
+{% block body_block1 %}
+	
+	
+
+<div class="panel panel-default" style="margin-top:10px;">
+<table class="table table-bordered table-responsive" >
+
+
+  
+
+
+</table>
+</div>
+
+<p style="text-align: center;"> nhzandi@hotmail.com </p>
+
+
+
+{% endblock %}

@@ -232,3 +232,10 @@ def user_logout(request):
 
     # Take the user back to the homepage.
     return HttpResponseRedirect('/instrument/')
+
+
+def About(request):
+    return render(request, 'instrument/about.html')
+
+def Contact(request):
+    return render(request, 'instrument/contact.html')

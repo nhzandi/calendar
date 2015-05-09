@@ -4,6 +4,15 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'CSS/base.css' %}" />
 
+<!-- {% block header_block %}{{user.username}}{% endblock %} -->
+{% block header_block1 %}
+  {% if user.is_authenticated %}
+    <li><a style="color:  #2f4f4f;" href="/instrument/logout/">Logout</a></li>
+    <li><a style="color:  #2f4f4f;">{{user.username}}</a></li>
+  {% else %}
+    <li><a style="color:  #2f4f4f;" href="/instrument/login/">Login</a></li>
+  {% endif %}
+{% endblock %}
 {% block title_block %}
 
 	{{month1.name}}
@@ -17,19 +26,19 @@
   
     <tr>
         
-    <th style ="background-color: #00ced1; width: 100px; text-align:center;">Saturday</th>
-    <th style ="background-color: #00ced1; width: 100px; text-align:center;">Sunday</th>
-    <th style ="background-color: #00ced1; width: 100px; text-align:center;">Monday</th>
-    <th style ="background-color: #00ced1; width: 100px; text-align:center;">Tuesday</th>
-    <th style ="background-color: #00ced1; width: 100px; text-align:center;">Wednesday</th>
-    <th style ="background-color: #00ced1; width: 100px; text-align:center;">Thursday</th>
-    <th style ="background-color: #00ced1; width: 100px; text-align:center;">Friday</th>
+    <th style ="background-color: #00ced1; width: 100px; text-align:center; color: #2f4f4f;">Saturday</th>
+    <th style ="background-color: #00ced1; width: 100px; text-align:center; color: #2f4f4f;">Sunday</th>
+    <th style ="background-color: #00ced1; width: 100px; text-align:center; color: #2f4f4f;">Monday</th>
+    <th style ="background-color: #00ced1; width: 100px; text-align:center; color: #2f4f4f;">Tuesday</th>
+    <th style ="background-color: #00ced1; width: 100px; text-align:center; color: #2f4f4f;">Wednesday</th>
+    <th style ="background-color: #00ced1; width: 100px; text-align:center; color: #2f4f4f;">Thursday</th>
+    <th style ="background-color: #00ced1; width: 100px; text-align:center; color: #2f4f4f;">Friday</th>
     
   </tr>
 
   <tr>
   {% for x in outWeek0 %}
-      <td  id={{x}} style ="background-color: #ffffff; height: 100px;" 
+      <td  id={{x}} style ="background-color: #ffffff; height: 100px;color: #2f4f4f;" 
       onmouseover="coloring(this);" onmouseout="uncoloring(this);" >
       {% if x %}
         {{ x }}
@@ -40,7 +49,7 @@
 
   <tr>
   {% for x in outWeek1 %}
-      <td  id={{x}} style ="background-color: #ffffff; height: 100px;" 
+      <td  id={{x}} style ="background-color: #ffffff; height: 100px;color: #2f4f4f;" 
       onmouseover="coloring(this);" onmouseout="uncoloring(this);" >
         {{ x }}
       </td>
@@ -49,7 +58,7 @@
 
   <tr>
   {% for x in outWeek2 %}
-      <td  id={{x}} style ="background-color: #ffffff; height: 100px;" 
+      <td  id={{x}} style ="background-color: #ffffff; height: 100px;color: #2f4f4f;" 
       onmouseover="coloring(this);" onmouseout="uncoloring(this);" >
         {{ x }}
       </td>
@@ -58,7 +67,7 @@
 
   <tr>
   {% for x in outWeek3 %}
-      <td  id={{x}} style ="background-color: #ffffff; height: 100px;" 
+      <td  id={{x}} style ="background-color: #ffffff; height: 100px;color: #2f4f4f;" 
       onmouseover="coloring(this);" onmouseout="uncoloring(this);" >
         {{ x }}
       </td>
@@ -67,7 +76,7 @@
 
   <tr>
   {% for x in outWeek4 %}
-      <td  id={{x}} style ="background-color: #ffffff; height: 100px;" 
+      <td  id={{x}} style ="background-color: #ffffff; height: 100px;color: #2f4f4f;" 
       onmouseover="coloring(this);" onmouseout="uncoloring(this);" >
       {% if x %}
         {{ x }}
@@ -77,7 +86,7 @@
   </tr>
   <tr>
   {% for x in outWeek5 %}
-      <td  id={{x}} style ="background-color: #ffffff; height: 100px;" 
+      <td  id={{x}} style ="background-color: #ffffff; height: 100px;color: #2f4f4f;" 
       onmouseover="coloring(this);" onmouseout="uncoloring(this);">
       {% if x %}
         {{ x }}

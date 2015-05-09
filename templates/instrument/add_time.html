@@ -1,8 +1,15 @@
 {% extends 'base.html' %}
 
 {% load staticfiles %}
-
-{% block title_block %}Reserve Time For {{number_of_year}}-{{number_of_month}}-{{number_of_day}} {% endblock %}
+{% block header_block1 %}
+  {% if user.is_authenticated %}
+    <li><a style="color:  #2f4f4f;" href="/instrument/logout/">Logout</a></li>
+    <li><a style="color:  #2f4f4f;">{{user.username}}</a></li>
+  {% else %}
+    <li><a style="color:  #2f4f4f;" href="/instrument/login/">Login</a></li>
+  {% endif %}
+{% endblock %}
+{% block title_block %}Reserve Time</br>{{number_of_year}}-{{number_of_month}}-{{number_of_day}}{% endblock %}
 
 {% block body_block %}
         </br>
@@ -11,6 +18,7 @@
             {% csrf_token %}
             {% for hidden in form.hidden_fields %}
                 {{ hidden }}
+            </br>
             {% endfor %}
 
             {% for field in form.visible_fields %}
