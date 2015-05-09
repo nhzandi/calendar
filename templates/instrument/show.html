@@ -15,14 +15,14 @@
 		{% if timeOfDay %}
 			
 				<div class="panel panel-default" style="margin-top:10px;">
-					<table class="table table-bordered" >
+					<table class="table table-bordered table-hover" >
 
 						<tr>
 							<th style="background-color: #00ced1;text-align:center;">Time</th>
 							<th style="background-color: #00ced1;text-align:center;">Reserved By</th>
 						</tr>
 						{% for times in timeOfDay %}
-						<tr onmouseover="coloring(this);" onmouseout="uncoloring(this);">
+						<tr>
 							<th style="text-align:center;">{{ times }} : {{times.startMinute}}</th>
 							<th style="text-align:center;">{{ times.numofuser }}</th>
 						</tr>
