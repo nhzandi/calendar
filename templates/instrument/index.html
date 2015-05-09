@@ -38,12 +38,19 @@
 
   <tr>
   {% for x in outWeek0 %}
+      {% if x %}
       <td  id={{x}} style ="background-color: #ffffff; height: 100px;color: #2f4f4f;" 
       onmouseover="coloring(this);" onmouseout="uncoloring(this);" >
-      {% if x %}
+      
         {{ x }}
+        </td>
+      {% else %}
+        <td  id={{x}} style ="background-color: #ffffff; height: 100px;color: #2f4f4f;" >
+              
+        </td>
       {% endif %}
-      </td>
+
+      
   {% endfor %}
   </tr>
 
@@ -86,12 +93,17 @@
   </tr>
   <tr>
   {% for x in outWeek5 %}
-      <td  id={{x}} style ="background-color: #ffffff; height: 100px;color: #2f4f4f;" 
-      onmouseover="coloring(this);" onmouseout="uncoloring(this);">
       {% if x %}
+      <td  id={{x}} style ="background-color: #ffffff; height: 100px;color: #2f4f4f;" 
+      onmouseover="coloring(this);" onmouseout="uncoloring(this);" >
+      
         {{ x }}
+        </td>
+      {% else %}
+        <td  id={{x}} style ="background-color: #ffffff; height: 100px;color: #2f4f4f;" >
+              
+        </td>
       {% endif %}
-      </td>
   {% endfor %}
   </tr>
 {% endblock %}
